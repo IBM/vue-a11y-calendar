@@ -134,7 +134,7 @@ Backwards-compatible changes that do not add new functionality
 - :bug: `:bug:`
 - :shirt: `:shirt:`
 - :art: `:art:`
-- :unamused: `:unamused:`
+- :wrench: `:wrench:`
 
 **Pre-Release Version**
 In-progress release
@@ -157,5 +157,5 @@ When writing commits, please **start** the [commit message](#git-commit-messages
 * :green_heart: `:green_heart:` when fixing the CI build
 * :lock: `:lock:` when dealing with security
 * :crystal_ball: `:crystal_ball:` when experimenting
-* :unamused: `:unamused:` when doing chore work (updating dependencies, etc…)
+* :wrench: `:wrench:` when doing chore work (updating dependencies, etc…)
 * :boom: `:boom:` when changing in a non-backwards-compatible way current functionality
