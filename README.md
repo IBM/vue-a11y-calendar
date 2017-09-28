@@ -32,7 +32,7 @@ const config = {
       '@': resolve('src'), // Replace `src` with the path to your source files from the root of your project
       '~': resolve('node_modules'),
     },
-  },  
+  },
 };
 
 ```
@@ -43,7 +43,7 @@ The above configuration will allow `.js`, `.vue`, and `.json` files to be import
 
 ### Calendar
 
-The Calendar component provides a responsive, dynamic, accessible, localized (using [`Date.prototype.toLocaleString()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString)) month-based calendar. `TODO` add event support.
+The Calendar component provides a responsive, dynamic, accessible, localized (using [`Date.prototype.toLocaleString()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString)) month-based calendar.
 
 **Props**
 - `{string} locale` - Any valid single locale for [`Date.prototype.toLocaleString()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString)
@@ -88,3 +88,7 @@ Classes are styled using [BEM](http://getbem.com/) to, as best as possible, targ
 - Fire event when per-day item is selected
 - Allow for date ranges in datepicker
 - Tests
+
+## External Licenses
+
+The Calendar icon is licensed under the [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/) by [International Business Machines Corporation](http://www.ibm.com/us/en/). It is from [IBM Design Icons](https://github.com/IBM-Design/icons).
