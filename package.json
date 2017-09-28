@@ -1,0 +1,47 @@
+{
+  "name": "vue-a11y-calendar",
+  "version": "0.0.0",
+  "description": "Flexible, accessible, internationalized calendar component for Vue",
+  "main": "index.js",
+  "scripts": {
+    "lint": "npm run lint:js && npm run lint:sass",
+    "lint:js": "eslint --ext .js,.vue,.html calendar datepicker tests",
+    "lint:sass": "sass-lint -q -v",
+    "pretest": "npm run lint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IBM/vue-a11y-calendar.git"
+  },
+  "keywords": [
+    "a11y",
+    "calendar",
+    "vue",
+    "i18n",
+    "component",
+    "vue.js",
+    "accessibility",
+    "internationalization"
+  ],
+  "author": "Sam Richard <sam@snug.ug>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/IBM/vue-a11y-calendar/issues"
+  },
+  "homepage": "https://github.com/IBM/vue-a11y-calendar#readme",
+  "devDependencies": {
+    "babel-eslint": "^8.0.0",
+    "eslint": "^4.7.2",
+    "eslint-config-airbnb-base": "^12.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-vue": "^3.13.0",
+    "node-sass": "^4.5.3",
+    "sass-lint": "^1.11.1",
+    "webpack": "^3.6.0"
+  },
+  "dependencies": {
+    "sass-loader": "^6.0",
+    "vue": "^2.4"
+  }
+}
