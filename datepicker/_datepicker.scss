@@ -1,0 +1,83 @@
+$black: #000;
+$border: 2px solid $black;
+$size: 2.5em;
+
+.datepicker {
+  box-sizing: border-box;
+  position: relative;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  &__activate {
+    display: inline-block;
+    height: 1rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__popup {
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    left: calc(50% - 150px);
+    top: 0;
+    display: none;
+
+    &[data-state='open'] {
+      display: block;
+    }
+  }
+
+  &__cancel {
+    background: white;
+    border: $border;
+    border-radius: 50%;
+    color: transparent;
+    height: $size;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(-1em) translateX(1em);
+    width: $size;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &::before {
+      color: $black;
+      content: 'x';
+      display: block;
+      font-size: $size - 1em;
+      font-weight: bold;
+      speak: none;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .calendar__body {
+    grid-auto-rows: 2.25em;
+  }
+
+  .calendar__head {
+    border: {
+      left: $border;
+      right: $border;
+    }
+  }
+
+  .calendar__header {
+    border: {
+      left: $border;
+      right: $border;
+      top: $border;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+<div class="datepicker">
+  <div class="datepicker__wrapper">
+    <label :for="inputs.local" class="datepicker__label">{{ label }}</label>
+    <input :id="inputs.local" :name="inputs.local" type="text" class="datepicker__input" :value="selectedLocal" readonly>
+    <svg class="datepicker__activate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" role="button" @click="open" @keydown.space="open" @keydown.enter="open" tabindex="0">
+      <title>Open Calendar</title>
+      <path class="cls-1" d="M13,1V0H11V1H5V0H3V1H0V16H16V1Zm1,13H2V5H14Z"/>
+      <rect class="cls-1" x="4" y="7" width="2" height="2"/>
+      <rect class="cls-1" x="10" y="7" width="2" height="2"/>
+      <rect class="cls-1" x="7" y="7" width="2" height="2"/>
+      <rect class="cls-1" x="4" y="10" width="2" height="2"/>
+      <rect class="cls-1" x="10" y="10" width="2" height="2"/>
+      <rect class="cls-1" x="7" y="10" width="2" height="2"/>
+    </svg>
+    <input type="hidden" :name="inputs.day" :value="selectedDay">
+    <input type="hidden" :name="inputs.month" :value="selectedMonth">
+    <input type="hidden" :name="inputs.year" :value="selectedYear">
+  </div>
+
+  <div class="datepicker__popup" aria-label="Date Picker" role="application" @keydown.tab="tabcapture" @keydown.esc="cancel" tabindex="-1">
+    <calendar class="datepicker__calendar" @dateSelected="select" :locale="locale" :microcopy="microcopy"></calendar>
+    <button class="datepicker__cancel" @click="cancel">Cancel</button>
+  </div>
+</div>
