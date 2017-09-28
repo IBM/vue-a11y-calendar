@@ -1,0 +1,167 @@
+$black: #000;
+$blue: #00f;
+$yellow: #ff0;
+$red: #f00;
+$gray: #888;
+$white: #fff;
+$half-pixel: (.5px / 16px) * 1em;
+
+@mixin arrow($dir) {
+  $arrow: '<';
+  $padding: 'right';
+
+  @if $dir == 'right' {
+    $arrow: '>';
+    $padding: 'left';
+  }
+  color: $black;
+  content: $arrow;
+  display: block;
+  font-weight: bolder;
+  padding-#{$padding}: .25em;
+  speak: none;
+}
+
+.calendar {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+
+  button {
+    background: none;
+    border: 0;
+    font-size: 1em;
+  }
+
+  * { // sass-lint:disable-line no-universal-selectors
+    box-sizing: border-box;
+  }
+
+  // Header
+  &__header {
+    align-items: center;
+    background: mix($white, $blue, 50%);
+    display: flex;
+    flex-shrink: 0;
+    font-size: 1.5em;
+    justify-content: center;
+    order: -1;
+    padding-bottom: .5em;
+    padding-top: .5em;
+    width: 100%;
+
+  }
+
+  &__nav {
+    // Visibly hidden, so `px` OK
+    color: transparent;
+    display: block;
+    height: 1px; // sass-lint:disable-line property-units
+    overflow: hidden;
+    width: 1px; // sass-lint:disable-line property-units
+  }
+
+  &__next,
+  &__previous {
+    align-items: center;
+    display: flex;
+    text-decoration: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__next {
+    order: 1;
+
+    &::before {
+      @include arrow('right');
+    }
+  }
+
+  &__previous {
+    order: -1;
+
+    &::after {
+      @include arrow('left');
+    }
+  }
+
+  &__month {
+    margin-left: .25em;
+    margin-right: .25em;
+  }
+
+  // Calendar
+  &__wrapper {
+    border-collapse: collapse;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 2em auto;
+    width: 100%;
+  }
+
+  &__head {
+    background: mix($white, $blue, 50%);
+    grid-column: span 7;
+    grid-row: span 1;
+  }
+
+  &__body {
+    border: $half-pixel * 2 solid $black;
+    display: grid;
+    grid-auto-rows: minmax(3em, 10vh);
+    grid-column: span 7;
+  }
+
+  &__weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  &__weekday {
+    display: block;
+    grid-column: span 1;
+  }
+
+  &__week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  &__day {
+    border: .03125em solid $black;
+    grid-column: span 1;
+
+    &--disabled {
+      background: mix($white, $gray, 50%);
+      border: $half-pixel solid $black;
+    }
+
+    &--active {
+      background: mix($white, $yellow, 50%);
+      border: $half-pixel solid $black;
+    }
+  }
+
+  &__link {
+    align-items: flex-start;
+    color: $black;
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
+    padding: .25em .5em;
+    text-decoration: none;
+    width: 100%;
+
+    &:focus {
+      background-color: rgba($red, .5);
+      outline: $half-pixel ridge mix($white, $red, 50%);
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
