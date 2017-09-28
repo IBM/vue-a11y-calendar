@@ -1,0 +1,11 @@
+root: true
+parserOptions:
+  sourceType: module
+  parser: babel-eslint
+env:
+  browser: true
+extends:
+  - airbnb-base
+  - plugin:vue/recommended
+rules:
+  max-len: 0

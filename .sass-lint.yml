@@ -1,0 +1,144 @@
+cache-config: true
+files:
+  include: 'src/**/*.scss'
+options:
+  max-warnings: 15
+rules:
+  attribute-quotes: 2
+  bem-depth: 2
+  border-zero: 2
+  brace-style:
+    - 2
+    -
+      allow-single-line: false
+      style: stroustrup
+  class-name-format:
+    - 2
+    -
+      allow-leading-underscore: true
+      convention: hyphenatedbem
+  clean-import-paths: 2
+  no-color-keywords: 2
+  declarations-before-nesting: 2
+  empty-args: 2
+  empty-line-between-blocks:
+    - 2
+    -
+      allow-single-line-rulesets: false
+      include: true
+  extends-before-declarations: 2
+  extends-before-mixins: 2
+  final-newline: 2
+  force-attribute-nesting: 2
+  force-element-nesting: 2
+  force-pseudo-nesting: 2
+  function-name-format:
+    - 2
+    -
+      allow-leading-underscore: true
+      convention: hyphenatedbem
+  hex-length: 2
+  hex-notation: 2
+  id-name-format: 0
+  indentation:
+    - 2
+    -
+      size: 2
+  leading-zero: 2
+  max-file-line-count: 2
+  max-line-length: 0
+  mixin-name-format:
+    - 2
+    -
+      allow-leading-underscore: true
+      convention: hyphenatedbem
+  mixins-before-declarations:
+    - 2
+    -
+      exlcude:
+        - breakpoint
+        - mq
+  nesting-depth: 2
+  no-attribute-selectors: 0
+  no-color-literals:
+    - 2
+    -
+      allow-rgba: true
+  no-combinators: 0
+  no-css-comments: 2
+  no-debug: 1
+  no-disallowed-properties: 0
+  no-duplicate-properties: 2
+  no-empty-rulesets: 2
+  no-extends: 0
+  no-hex-color: 0
+  no-ids: 2
+  no-important: 2
+  no-invalid-hex: 2
+  no-mergeable-selectors: 2
+  no-misspelled-properties: 2
+  no-qualifying-elements: 2
+  no-trailing-whitespace: 2
+  no-trailing-zero: 2
+  no-transition-all: 2
+  no-universal-selectors: 2
+  no-url-domains: 0
+  no-url-protocols:
+    - 2
+    -
+      allow-protocol-relative-urls: true
+  no-vendor-prefixes: 2
+  no-warn: 1
+  one-declaration-per-line: 2
+  placeholder-in-extend: 2
+  placeholder-name-format:
+    - 2
+    -
+      allow-leading-underscore: true
+      convention: hyphenatedbem
+  property-sort-order:
+    - 2
+    -
+      order: alphabetical
+  property-units:
+    - 2
+    -
+      global:
+        - em
+        - rem
+        - '%'
+        - vh
+        - vw
+        - fr
+        - ch
+        - s
+      per-property:
+        border-radius:
+          - px
+          - em
+          - rem
+        box-shadow:
+          - px
+          - em
+          - rem
+  pseudo-element: 2
+  quotes: 2
+  shorthand-values: 2
+  single-line-per-selector: 2
+  space-after-bang: 2
+  space-after-colon: 2
+  space-after-comma: 2
+  space-around-operator: 2
+  space-before-bang: 2
+  space-before-brace: 2
+  space-before-colon: 2
+  space-between-parens: 2
+  trailing-semicolon: 2
+  url-quotes: 2
+  variable-for-property: 0
+  variable-name-format:
+    - 2
+    -
+      allow-leading-underscore: true
+      convention: hyphenatedbem
+  zero-unit: 2
