@@ -1,20 +1,21 @@
 <template>
   <div>
     <nav class="navbar">
-      <div class="navbar-brand">
-        <router-link to="/" class="navbar-item" exact>
+      <div class="navbar__navbar-brand">
+        <router-link to="/" class="navbar__navbar-item" exact>
           Vue A11Y Calendar {{ version }}
         </router-link>
       </div>
 
-      <router-link v-for="i in nav" :key="i.title" :to="i.to" class="navbar-item">
+      <router-link v-for="i in nav" :key="i.title" :to="i.to" class="navbar__navbar-item">
         {{ i.title }}
       </router-link>
 
-      <a target="_github" href="https://github.com/IBM/vue-a11y-calendar" class="navbar-item" rel="noopener noreferrer">
-        Github
-      </a>
-
+      <div class="navbar__navbar-end">
+        <a target="_github" href="https://github.com/IBM/vue-a11y-calendar" class="navbar__navbar-item" rel="noopener noreferrer">
+          Github
+        </a>
+      </div>
     </nav>
 
     <nuxt/>
