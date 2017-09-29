@@ -20,6 +20,10 @@ $size: 2.5em;
     }
   }
 
+  &__label {
+    display: block;
+  }
+
   &__popup {
     background-color: $white;
     display: none;
