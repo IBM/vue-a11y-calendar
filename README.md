@@ -37,7 +37,7 @@ const config = {
 
 ```
 
-The above configuration will allow `.js`, `.vue`, and `.json` files to be imported/required without including their extensions, allow `index.js` and `index.vue` files to be found as files to be imported when importing/requiring a folder (so `calendar/index.vue` can just be included/requires as `calendar`), and will resolve Vue to the correct version, and allow shortcut imports `@` for source files and `~` for Node modules. This will allow for code like `import foo from '@/foo';` and `import calendar from '~/vue-a11y-calendar/calendar';`.
+The above configuration will allow `.js`, `.vue`, and `.json` files to be imported/required without including their extensions, allow `index.js` and `index.vue` files to be found as files to be imported when importing/requiring a folder (so `calendar/index.vue` can just be included/requires as `calendar`), and will resolve Vue to the correct version, and allow shortcut imports `@` for source files and `~` for Node modules (useful for things distributed through Node modules that can't be directly imported). This will allow for code like `import foo from '@/foo';` and `import calendar from 'vue-a11y-calendar/calendar';`.
 
 ## Components
 
