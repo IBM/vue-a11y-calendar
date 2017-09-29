@@ -156,7 +156,7 @@ export default {
       for (let i = 0; i < 7; i += 1) {
         if (i < leading) {
           const day = (previous.days - (current.start - 1)) + i;
-          const dayString = (day + 1).toLocaleString(this.locale);
+          const dayString = day.toLocaleString(this.locale);
 
           days[0].push({
             month: previous.month,
@@ -172,7 +172,7 @@ export default {
           const isToday = this.isToday({ day, month: current.month, year: current.year });
           const focusable = this.isFocusable({ day, month: current.month, year: current.year });
           const dateString = this.getLocaleDate(day, current.month, current.year);
-          const dayString = (day + 1).toLocaleString(this.locale);
+          const dayString = day.toLocaleString(this.locale);
 
           days[0].push({
             month: current.month,
@@ -196,7 +196,7 @@ export default {
         const isToday = this.isToday({ day, month: current.month, year: current.year });
         const focusable = this.isFocusable({ day, month: current.month, year: current.year });
         const dateString = this.getLocaleDate(day, current.month, current.year);
-        const dayString = (day + 1).toLocaleString(this.locale);
+        const dayString = day.toLocaleString(this.locale);
 
         days[week].push({
           month: current.month,
@@ -215,7 +215,7 @@ export default {
 
       // Fill final week
       for (let i = 1; i < trailing; i += 1) {
-        const dayString = (i + 1).toLocaleString(this.locale);
+        const dayString = i.toLocaleString(this.locale);
         days[week].push({
           month: next.month,
           year: next.year,
@@ -367,32 +367,41 @@ export default {
       return move;
     },
     getCurrent() {
-      const { params } = this.$route;
-      params.year = parseInt(params.year, 10); // Make sure parameter is an integer
-
-      const needYear = Number.isInteger(params.year) && params.year >= 1911;
-      const parsedMonth = new Date(Date.parse(`${params.month} 1, 2017`)).toLocaleDateString('en-US', { month: 'long' });
-      const needMonth = typeof params.month === 'string' && months.indexOf(parsedMonth) >= 0;
+      const current = {};
       const now = new Date(Date.now());
 
-      if (!needYear) {
-        params.year = now.getFullYear();
+      current.month = now.getMonth();
+      current.year = now.getFullYear();
+
+      // If routing is in place _and_
+      if (this.$route) {
+        const { params } = this.$route;
+
+        if (params && Object.prototype.hasOwnProperty.call(params, 'year') && Object.prototype.hasOwnProperty.call(params, 'month')) {
+          params.year = parseInt(params.year, 10); // Make sure parameter is an integer
+
+          const validYear = Number.isInteger(params.year) && params.year >= 1911;
+          const parsedMonth = new Date(Date.parse(`${params.month} 1, 2017`)).toLocaleDateString('en-US', { month: 'long' });
+          const validMonth = typeof params.month === 'string' && months.indexOf(parsedMonth) >= 0;
+
+          if (validYear) {
+            current.year = params.year;
+          }
+
+          if (validMonth) {
+            current.month = months.indexOf(parsedMonth);
+          }
+
+          this.$router.push({
+            params: {
+              year: current.year,
+              month: months[current.month].toLowerCase(),
+            },
+          });
+        }
       }
 
-      if (!needMonth) {
-        params.month = now.getMonth();
-      } else {
-        params.month = months.indexOf(parsedMonth);
-      }
-
-      this.$router.push({
-        params: {
-          year: params.year,
-          month: months[params.month].toLowerCase(),
-        },
-      });
-
-      return params;
+      return current;
     },
     setCurrent(month, year) {
       this.current = {
@@ -400,12 +409,14 @@ export default {
         year,
       };
 
-      this.$router.push({
-        params: {
-          year,
-          month: months[month].toLowerCase(),
-        },
-      });
+      if (this.$router) {
+        this.$router.push({
+          params: {
+            year,
+            month: months[month].toLowerCase(),
+          },
+        });
+      }
     },
   },
   data() {
