@@ -1,6 +1,8 @@
 cache-config: true
 files:
-  include: 'src/**/*.scss'
+  include: 
+    - 'docs/**/*.scss'
+  ignore:  'node_modules/**'
 options:
   max-warnings: 15
 rules:
