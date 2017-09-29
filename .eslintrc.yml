@@ -8,4 +8,17 @@ extends:
   - airbnb-base
   - plugin:vue/recommended
 rules:
+  import/no-extraneous-dependencies:
+    - error
+    -
+      devDependencies:
+        - docs/**/*.vue
+        - docs/**/*.js
+        - tests/**/*.vue
+        - tests/**/*.js
+      peerDependencies:
+        - docs/**/*.vue
+        - docs/**/*.js
+        - tests/**/*.vue
+        - tests/**/*.js
   max-len: 0
