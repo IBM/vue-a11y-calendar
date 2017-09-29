@@ -1,0 +1,50 @@
+.navbar {
+  align-items: flex-start;
+  background-color: $primary;
+  display: flex;
+  font-size: 1rem;
+  padding: 1rem 1.5rem;
+
+  &__start,
+  &__end {
+    display: flex;
+    flex-wrap: wrap;
+    // height: 3.5rem;
+  }
+
+  &__components {
+    display: flex;
+    padding: {
+      bottom: .25rem;
+      right: 1rem;
+      top: .25rem;
+    }
+  }
+
+  &__end {
+    // justify-content: flex-end;
+    margin-left: auto;
+    padding: .25rem 0;
+  }
+
+  &__brand {
+    font-weight: bold;
+    margin-right: 1rem;
+    padding: .25rem 0;
+  }
+
+  &__item + &__item {
+    margin-left: 1rem;
+  }
+
+  &__brand,
+  &__item {
+    align-items: center;
+    color: $white;
+    display: flex;
+
+    &:hover {
+      background-color: color-shade($primary, 20);
+    }
+  }
+}

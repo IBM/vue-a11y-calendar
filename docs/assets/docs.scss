@@ -1,117 +1,14 @@
-$primary: #3273dc;
-$primary-darken: #2366d1;
-$light: #f5f5f5;
-$grey: #4a4a4a;
-$white: #fff;
+@import '~ibm-design-colors/ibm-colors';
 
-body {
-  font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-weight: lighter;
-  margin: 0;
-  text-rendering: optimizeLegibility;
-}
+$primary: color('cerulean', 50);
+$light: color('cool-white', 4);
+$grey: color('black', 100);
+$white: color('white', 0);
 
-.container {
-  padding: 1rem 10vw;
-}
-
-.navbar {
-  background-color: $primary;
-  display: flex;
-  font-size: 1rem;
-
-  .navbar__start,
-  .navbar__end {
-    display: flex;
-    height: 3.5rem;
-  }
-
-  .navbar__end {
-    justify-content: flex-end;
-    margin-left: auto;
-  }
-
-  .navbar__brand {
-    font-weight: bold;
-  }
-
-  .navbar__brand,
-  .navbar__item {
-    align-items: center;
-    color: $white;
-    display: flex;
-    padding: .5rem 1rem;
-
-    &:hover {
-      background-color: $primary-darken;
-    }
-  }
-}
-
-a {
-  text-decoration: none;
-}
-
-pre {
-  background-color: $light;
-  font-weight: normal;
-  padding: 1.5rem;
-}
-
-.hero {
-  background-color: $light;
-  color: $grey;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 1.5rem 3rem;
-
-  .hero__container {
-    padding: 1rem 10vw;
-  }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-weight: normal;
-}
-
-.demo {
-  display: flex;
-  flex-wrap: wrap;
-
-  .demo__props,
-  .demo__component {
-    margin: 1.5rem;
-  }
-
-  .demo__component {
-    flex: 1;
-  }
-
-  .demo__props {
-    flex: 2;
-
-    table {
-      overflow-x: scroll;
-    }
-
-    th {
-      background-color: $light;
-    }
-
-    table,
-    th,
-    td {
-      border-collapse: collapse;
-    }
-
-    th,
-    td {
-      padding: 1rem;
-    }
-  }
-}
+@import 'partials/fonts';
+@import 'partials/base';
+@import 'partials/navbar';
+@import 'partials/container';
+@import 'partials/hero';
+@import 'partials/demo';
+@import 'partials/syntax-highlighting';

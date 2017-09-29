@@ -1,6 +1,6 @@
 {
   "name": "vue-a11y-calendar",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Flexible, accessible, internationalized calendar component for Vue",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,7 @@
     "lint:sass": "sass-lint -q -v",
     "pretest": "npm run lint",
     "test": "npm run docs:generate",
+    "start": "npm run docs",
     "docs": "NODE_ENV=dev nuxt -c docs/nuxt.config.js",
     "docs:generate": "nuxt generate -c docs/nuxt.config.js"
   },
@@ -40,9 +41,14 @@
     "eslint-config-airbnb-base": "^12.0.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-vue": "^3.13.0",
+    "ibm-design-colors": "^2.0.4",
+    "markdown-it-emoji": "^1.4.0",
+    "markdown-it-prism": "^1.1.1",
     "node-sass": "^4.5.3",
     "nuxt": "^1.0.0-rc11",
+    "prismjs": "^1.8.1",
     "sass-lint": "^1.11.1",
+    "vue-prism-component": "^1.0.1",
     "webpack": "^3.6.0"
   },
   "dependencies": {
