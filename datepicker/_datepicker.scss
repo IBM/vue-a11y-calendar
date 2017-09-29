@@ -1,4 +1,5 @@
 $black: #000;
+$white: #fff;
 $border: 2px solid $black;
 $size: 2.5em;
 
@@ -6,7 +7,7 @@ $size: 2.5em;
   box-sizing: border-box;
   position: relative;
 
-  * {
+  * { // sass-lint:disable-line no-universal-selectors
     box-sizing: border-box;
   }
 
@@ -20,12 +21,12 @@ $size: 2.5em;
   }
 
   &__popup {
-    position: absolute;
-    height: 300px;
-    width: 300px;
-    left: calc(50% - 150px);
-    top: 0;
     display: none;
+    height: 300px; // sass-lint:disable-line property-units
+    left: calc(50% - 150px);
+    position: absolute;
+    top: 0;
+    width: 300px; // sass-lint:disable-line property-units
 
     &[data-state='open'] {
       display: block;
@@ -33,7 +34,7 @@ $size: 2.5em;
   }
 
   &__cancel {
-    background: white;
+    background: $white;
     border: $border;
     border-radius: 50%;
     color: transparent;
