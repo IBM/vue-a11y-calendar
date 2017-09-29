@@ -15,11 +15,6 @@ module.exports = {
   ],
   build: {
     postcss: false,
-    // Fix problem with gh-pages where _* resources are not allowed and throws 404
-    publicPath: '/assets/',
-    filenames: {
-      chunk: '[chunkhash].js',
-    },
   },
   router: {
     base: '/vue-a11y-calendar/',

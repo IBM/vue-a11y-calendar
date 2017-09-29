@@ -11,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs": "nuxt -c docs/nuxt.config.js",
     "docs:generate": "nuxt generate -c docs/nuxt.config.js",
-    "docs:gh-pages": "gh-pages --dist docs/dist",
+    "docs:gh-pages": "gh-pages --dotfiles --dist docs/dist",
     "docs:deploy": "yarn docs:generate && yarn docs:gh-pages"
   },
   "repository": {
