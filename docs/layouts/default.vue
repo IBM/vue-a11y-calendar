@@ -3,14 +3,11 @@
     <nav class="navbar">
       <div class="navbar__start">
         <div class="navbar__brand">
-          <router-link to="/" class="navbar__item" exact>
-            Vue A11Y Calendar {{ version }}
-          </router-link>
+          <router-link to="/" class="navbar__item" exact>Vue A11Y Calendar {{ version }}</router-link>
         </div>
-
-        <router-link v-for="i in nav" :key="i.title" :to="i.to" class="navbar__item">
-          {{ i.title }}
-        </router-link>
+        <div class="navbar__components">
+          <router-link v-for="i in nav" :key="i.title" :to="i.to" class="navbar__item">{{ i.title }}</router-link>
+        </div>
       </div>
 
       <div class="navbar__end">
