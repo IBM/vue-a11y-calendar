@@ -7,6 +7,10 @@ yarn-error.log*
 test/unit/coverage
 test/e2e/reports
 selenium-debug.log
+.nuxt
+docs-dist
+docs/static/*sw*
+yarn.lock
 
 # Editor directories and files
 .idea

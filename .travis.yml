@@ -33,7 +33,7 @@ cache:
 before_script:
   - 'export DISPLAY=:99.0'
   - 'sh -e /etc/init.d/xvfb start'
-  - sleep 3
+  - 'sleep 3'
 
 # Configure Git username and email, then on a successful run on the `master` branch, will deploy the the codebase to GitHub Pages
 before_deploy:
@@ -43,7 +43,7 @@ deploy:
   skip_cleanup: true
   provider: pages
   github_token: ${GH_TOKEN}
-  local_dir: dist
+  local_dir: docs-dist
   github_url: github.ibm.com
   on:
     branch: master
