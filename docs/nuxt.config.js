@@ -11,11 +11,10 @@ module.exports = {
   },
   modules: [
     '@nuxtjs/markdownit',
-    '@nuxtjs/bulma',
   ],
-  build: {
-    postcss: false,
-  },
+  css: [
+    '~/assets/docs.scss',
+  ],
   router: {
     base: '/vue-a11y-calendar/',
   },
