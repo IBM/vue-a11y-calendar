@@ -8,7 +8,7 @@
     "lint:js": "eslint --ext .js,.vue,.html calendar datepicker tests docs",
     "lint:sass": "sass-lint -q -v",
     "pretest": "npm run lint",
-    "test": "npm run lint && npm run docs:generate",
+    "test": "npm run docs:generate",
     "docs": "NODE_ENV=dev nuxt -c docs/nuxt.config.js",
     "docs:generate": "nuxt generate -c docs/nuxt.config.js"
   },

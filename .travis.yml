@@ -35,9 +35,6 @@ before_script:
   - 'sh -e /etc/init.d/xvfb start'
   - 'sleep 3'
 
-script:
-  - 'npm run test'
-
 # Configure Git username and email, then on a successful run on the `master` branch, will deploy the the codebase to GitHub Pages
 before_deploy:
   - git config user.name 'Travis CI'

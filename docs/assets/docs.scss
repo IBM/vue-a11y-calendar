@@ -17,19 +17,25 @@ body {
 
 .navbar {
   background-color: $primary;
+  display: flex;
+  font-size: 1rem;
 
-  &,
-  .navbar__navbar-end {
+  .navbar__start, .navbar__end {
     display: flex;
     height: 3.5rem;
   }
 
-  .navbar__navbar-brand {
+  .navbar__end {
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+
+  .navbar__brand {
     font-weight: bold;
   }
 
-  .navbar__navbar-brand,
-  .navbar__navbar-item {
+  .navbar__brand,
+  .navbar__item {
     align-items: center;
     color: $white;
     display: flex;
@@ -38,11 +44,6 @@ body {
     &:hover {
       background-color: $primary-darken;
     }
-  }
-
-  .navbar__navbar-end {
-    justify-content: flex-end;
-    margin-left: auto;
   }
 }
 
@@ -79,21 +80,22 @@ h5 {
 
 .demo {
   display: flex;
+  flex-wrap: wrap;
 
-  .props,
-  .component {
+  .demo__props,
+  .demo__component {
     margin: 1.5rem;
   }
 
-  .component {
-    width: 40%;
+  .demo__component {
+    flex: 1;
   }
 
-  .props {
-    width: 60%;
+  .demo__props {
+    flex: 2;
 
     table {
-      width: 100%;
+      overflow-x: scroll;
     }
 
     th {

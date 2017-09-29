@@ -2,12 +2,12 @@
   <div>
     <div class="hero">
         <div class="hero__container">
-          <h1 class="title">{{ component.title }} </h1>
-          <h2 class="subtitle">{{ component.description}}</h2>
+          <h1>{{ component.title }} </h1>
+          <h2>{{ component.description}}</h2>
         </div>
     </div>
     <div class="container demo">
-      <div class="props">
+      <div class="demo__props">
         <h3>Properties</h3>
         <table>
           <thead>
@@ -48,7 +48,7 @@
           </table>
         </template>
       </div>
-      <div class="component">
+      <div class="demo__component">
         <component :is="component.component" ref="component" />
         <br>
         <div v-if="mounted">
