@@ -38,12 +38,11 @@ before_script:
 # Configure Git username and email, then on a successful run on the `master` branch, will deploy the the codebase to GitHub Pages
 before_deploy:
   - git config user.name 'Travis CI'
-  - git config user.email 'deploy@travis.ibm.com'
+  - git config user.email 'travis.deploy@ibm.com'
 deploy:
   skip_cleanup: true
   provider: pages
-  github_token: ${GH_TOKEN}
+  github_token: $GITHUB_TOKEN
   local_dir: docs-dist
-  github_url: github.ibm.com
   on:
     branch: master
