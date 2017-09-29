@@ -1,6 +1,8 @@
 cache-config: true
 files:
-  include: 'src/**/*.scss'
+  include:
+    - 'calendar/**/*.scss'
+    - 'datepicker/**/*.scss'
 options:
   max-warnings: 15
 rules:
