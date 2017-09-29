@@ -8,7 +8,11 @@
     "lint:js": "eslint --ext .js,.vue,.html calendar datepicker tests",
     "lint:sass": "sass-lint -q -v",
     "pretest": "npm run lint",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs": "nuxt -c docs/nuxt.config.js",
+    "docs:generate": "nuxt generate -c docs/nuxt.config.js",
+    "docs:gh-pages": "gh-pages --dist docs/dist",
+    "docs:deploy": "yarn docs:generate && yarn docs:gh-pages"
   },
   "repository": {
     "type": "git",
@@ -31,12 +35,16 @@
   },
   "homepage": "https://github.com/IBM/vue-a11y-calendar#readme",
   "devDependencies": {
+    "@nuxtjs/bulma": "^1.0.3",
+    "@nuxtjs/markdownit": "^1.1.2",
     "babel-eslint": "^8.0.0",
     "eslint": "^4.7.2",
     "eslint-config-airbnb-base": "^12.0.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-vue": "^3.13.0",
+    "gh-pages": "^1.0.0",
     "node-sass": "^4.5.3",
+    "nuxt": "^1.0.0-rc11",
     "sass-lint": "^1.11.1",
     "webpack": "^3.6.0"
   },
