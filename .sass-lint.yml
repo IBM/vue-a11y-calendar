@@ -1,8 +1,11 @@
 cache-config: true
 files:
-  include: 
+  ignore:
+    - 'node_modules/**'
+  include:
     - 'docs/**/*.scss'
-  ignore:  'node_modules/**'
+    - 'calendar/**/*.scss'
+    - 'datepicker/**/*.scss'
 options:
   max-warnings: 15
 rules:
