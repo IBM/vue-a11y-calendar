@@ -1,6 +1,9 @@
 cache-config: true
 files:
+  ignore:
+    - 'node_modules/**'
   include:
+    - 'docs/**/*.scss'
     - 'calendar/**/*.scss'
     - 'datepicker/**/*.scss'
 options:
