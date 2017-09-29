@@ -82,12 +82,9 @@ Classes are styled using [BEM](http://getbem.com/) to, as best as possible, targ
 
 **Alternatively**, the HTML, JS, and Sass for each component has been split out in to separate files that can be imported individually. The HTML and JS can used to rebuild the components piecemeal with custom styling (even allowing for `scoped` styling if desired).
 
-## TODO
+## Roadmap
 
-- Display per-day items on calendar (including ranges)
-- Fire event when per-day item is selected
-- Allow for date ranges in datepicker
-- Tests
+We use [ZenHub](https://www.zenhub.com/) to manage our backlog and roadmap (items higher in our backlog pipeline are higher in our roadmap). You can [view the board directly](https://app.zenhub.com/workspace/o/ibm/vue-a11y-calendar/boards?repos=104759650) in the ZenHub webapp, or install the Chrome or Firefox extension and view it [directly on GitHub](https://github.com/IBM/vue-a11y-calendar#boards?repos=104759650&showClosed=false).
 
 ## External Licenses
 
