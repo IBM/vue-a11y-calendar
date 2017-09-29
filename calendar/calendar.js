@@ -290,6 +290,8 @@ export default {
       // Do proper offset so we only navigate inside of the current month, and move to next/previous month at last/first day
       const elem = this.$refs.calendar.findIndex(elm => elm === e.target);
 
+      e.preventDefault(); // Prevent scrolling when using the arrow keys to navigate the calendar
+
       if (dir === 'next') {
         if (elem + 1 <= this.current.days + this.current.start - 1) { // eslint-disable-line no-mixed-operators
           this.$refs.calendar[elem + 1].focus();
