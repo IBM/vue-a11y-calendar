@@ -1,0 +1,33 @@
+body {
+  font-family: 'IBMPlexSans', BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 110%;
+  font-weight: 300;
+  margin: 0;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  text-decoration: none;
+}
+
+code {
+  background-color: $light;
+  border-radius: 3px;
+  font-size: .85em;
+  margin: 0;
+  padding: .2em 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: normal;
+}
+
+
+#__nuxt { // sass-lint:disable-line no-ids
+  overflow: hidden;
+  width: 100vw;
+}

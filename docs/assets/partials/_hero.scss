@@ -1,0 +1,12 @@
+.hero {
+  background-color: $light;
+  color: $grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem 3rem;
+
+  &__container {
+    padding: 1rem 10vw;
+  }
+}

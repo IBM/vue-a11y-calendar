@@ -1,0 +1,135 @@
+////
+/// Syntax Highlighting for use with Prism
+/// @group Syntax Highlighting
+////
+
+/// Shared code block styling
+%language {
+  $shadow: rgba(color('black', 100), .3);
+  background: none;
+  color: color('warm-white', 4);
+  font-family: 'IBM Plex Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-weight: normal;
+  hyphens: none;
+  line-height: 1.5;
+  tab-size: 2;
+  text-align: left;
+  text-shadow: 0 1px $shadow;
+  white-space: pre;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+}
+
+code {
+  &[class*='language-'] {
+    @extend %language;
+
+    :not(pre) > & {
+      background: color('warm-gray', 90);
+      border-radius: .3em;
+      padding: .1em;
+      white-space: normal;
+    }
+  }
+}
+
+pre {
+  &[class*='language-'] {
+    @extend %language;
+
+    background: color('warm-gray', 90);
+    border-radius: .3em;
+    margin: .5em 0;
+    overflow: auto;
+    padding: 1em;
+  }
+}
+
+.token {
+  // Comment-Style&.
+  &.comment,
+  &.prolog,
+  &.doctype,
+  &.cdata {
+    color: color('cool-gray', 40);
+  }
+
+  // Puncuation&.
+  &.punctuation {
+    color: color('warm-white', 4);
+  }
+
+  // Property and Symbol&.
+  &.property,
+  &.tag,
+  &.constant,
+  &.symbol,
+  &.deleted {
+    color: color('magenta', 40);
+  }
+
+  // Number/Boolean&.
+  &.boolean,
+  &.number {
+    color: color('violet', 40);
+  }
+
+  // Selector and Attribute&.
+  &.selector,
+  &.attr-name,
+  &.string,
+  &.char,
+  &.builtin,
+  &.inserted {
+    color: color('lime', 20);
+  }
+
+  // Operator&.
+  &.operator,
+  &.entity,
+  &.url,
+  .language-css &.string,
+  .style &.string,
+  &.variable {
+    color: color('warm-white', 4);
+  }
+
+  // Function and Rule&.
+  &.atrule,
+  &.attr-value,
+  &.function {
+    color: color('yellow', 10);
+  }
+
+  // Keyword&.
+  &.keyword {
+    color: color('aqua', 20);
+  }
+
+  // Regex&.
+  &.regex,
+  &.important {
+    color: color('gold', 20);
+  }
+
+  // Bold&.
+  &.important,
+  &.bold {
+    font-weight: bold;
+  }
+
+  // Italic&.
+  &.italic {
+    font-style: italic;
+  }
+
+  // Entry&.
+  &.entity {
+    cursor: help;
+  }
+}
+
+.namespace {
+  opacity: .7;
+}

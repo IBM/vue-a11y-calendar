@@ -1,0 +1,38 @@
+.demo {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__props,
+  &__component {
+    margin: 1.5rem;
+  }
+
+  &__component {
+    flex: 1;
+  }
+
+  &__wrap {
+    box-sizing: border-box;
+    max-width: 80vw;
+    overflow: auto;
+  }
+
+  &__props {
+    flex: 2;
+
+    th {
+      background-color: $light;
+    }
+
+    table,
+    th,
+    td {
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 1rem;
+    }
+  }
+}
