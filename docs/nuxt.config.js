@@ -21,6 +21,12 @@ module.exports = {
     '@nuxtjs/markdownit',
     '@nuxtjs/pwa',
   ],
+  markdownit: {
+    use: [
+      'markdown-it-prism',
+      'markdown-it-emoji',
+    ],
+  },
   css: [
     '~/assets/docs.scss',
   ],
