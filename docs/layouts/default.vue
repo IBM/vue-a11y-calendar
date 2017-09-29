@@ -11,7 +11,7 @@
         {{ i.title }}
       </router-link>
 
-      <a target="_github" href="https://github.com/IBM/vue-a11y-calendar" class="navbar-item">
+      <a target="_github" href="https://github.com/IBM/vue-a11y-calendar" class="navbar-item" rel="noopener noreferrer">
         Github
       </a>
 
