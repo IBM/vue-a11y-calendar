@@ -11,8 +11,8 @@ module.exports = {
     name: 'vue-a11y-calendar',
     short_name: 'vue-a11y-calendar',
     description: 'Flexible, accessible, internationalized calendar component for Vue',
-    theme_color: '#3273dc',
-    background_color: '#3273dc',
+    theme_color: '#047cc0',
+    background_color: '#047cc0',
   },
   env: {
     version,
