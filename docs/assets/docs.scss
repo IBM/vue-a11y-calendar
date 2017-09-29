@@ -20,7 +20,8 @@ body {
   display: flex;
   font-size: 1rem;
 
-  .navbar__start, .navbar__end {
+  .navbar__start,
+  .navbar__end {
     display: flex;
     height: 3.5rem;
   }
