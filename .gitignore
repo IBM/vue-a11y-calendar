@@ -9,6 +9,7 @@ test/e2e/reports
 selenium-debug.log
 .nuxt
 docs/dist
+.yarn.lock
 
 # Editor directories and files
 .idea
