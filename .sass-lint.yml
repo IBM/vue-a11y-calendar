@@ -118,6 +118,14 @@ rules:
         - ch
         - s
       per-property:
+        border:
+          - px
+          - em
+          - rem
+        text-shadow:
+          - px
+          - em
+          - rem
         border-radius:
           - px
           - em
