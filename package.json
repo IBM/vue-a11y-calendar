@@ -10,9 +10,7 @@
     "pretest": "npm run lint",
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs": "nuxt -c docs/nuxt.config.js",
-    "docs:generate": "nuxt generate -c docs/nuxt.config.js",
-    "docs:gh-pages": "gh-pages --dotfiles --dist docs/dist",
-    "docs:deploy": "npm run docs:generate && npm run docs:gh-pages"
+    "docs:generate": "nuxt generate -c docs/nuxt.config.js"
   },
   "repository": {
     "type": "git",
@@ -41,7 +39,6 @@
     "eslint-config-airbnb-base": "^12.0.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-vue": "^3.13.0",
-    "gh-pages": "^1.0.0",
     "node-sass": "^4.5.3",
     "nuxt": "^1.0.0-rc11",
     "sass-lint": "^1.11.1",
