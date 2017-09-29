@@ -46,7 +46,7 @@ deploy:
   skip_cleanup: true
   provider: pages
   github_token: ${GH_TOKEN}
-  local_dir: docs/dist
+  local_dir: docs-dist
   github_url: github.ibm.com
   on:
     branch: master

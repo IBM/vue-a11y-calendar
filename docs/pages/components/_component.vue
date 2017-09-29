@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import components from '~/components';
+import components from '../../components';
 
 export default {
   head() {
@@ -23,8 +23,8 @@ export default {
       title: this.component.title,
     };
   },
-  validate({ params }) {
-    return Boolean(components[params.component]);
+  validate(ctx) {
+    return Boolean(components[ctx.params.component]);
   },
   computed: {
     component() {

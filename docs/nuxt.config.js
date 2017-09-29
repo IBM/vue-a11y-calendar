@@ -1,4 +1,4 @@
-const { join } = require('path');
+const { resolve } = require('path');
 const { version } = require('../package.json');
 
 module.exports = {
@@ -19,7 +19,7 @@ module.exports = {
     base: '/vue-a11y-calendar/',
   },
   generate: {
-    dir: join(__dirname, 'dist'),
+    dir: resolve(__dirname, '../docs-dist'),
     routes: [
       '/components/calendar',
       '/components/datepicker',

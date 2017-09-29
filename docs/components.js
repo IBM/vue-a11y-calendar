@@ -1,5 +1,5 @@
-import Calendar from '~~/calendar';
-import DatePicker from '~~/datepicker';
+import Calendar from '../calendar/index.vue';
+import DatePicker from '../datepicker/index.vue';
 
 export default {
   calendar: {
