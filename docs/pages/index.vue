@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import readme from '~~/readme.md';
+import readme from '~~/README.md';
 
 export default {
   head: {
