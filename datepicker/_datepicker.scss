@@ -21,6 +21,7 @@ $size: 2.5em;
   }
 
   &__popup {
+    background-color: $white;
     display: none;
     height: 300px; // sass-lint:disable-line property-units
     left: calc(50% - 150px);
