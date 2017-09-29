@@ -49,8 +49,8 @@ export default {
       validator(value) {
         const keys = ['today', 'next', 'previous', 'open', 'cancel'];
 
-        // Make sure all three keys are there
-        if (JSON.stringify(Object.keys(value)) !== JSON.stringify(keys)) {
+        // Make sure all required keys are there
+        if (keys.find(k => value[k] === undefined)) {
           return false;
         }
 
