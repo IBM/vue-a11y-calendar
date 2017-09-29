@@ -1,0 +1,49 @@
+dist: trusty
+
+language: node_js
+
+# Use Node 8.4 or better, stopping at Node 9
+node_js:
+  - 8.4
+
+# Install Chrome, Firefox, and XVFB
+dist: trusty
+addons:
+  chrome: stable
+  firefox: '52.3'
+  apt:
+    packages:
+      # This is required to run new chrome on old trusty
+      - libnss3
+      - xvfb
+
+# Runs on all branches except SEMVER version branches and gh-pages branch
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
+    - gh-pages
+
+# Caches the Node Modules directory across builds
+cache:
+  directories:
+    - node_modules
+
+# Allow GUI browsers to run in Travis
+# https://docs.travis-ci.com/user/gui-and-headless-browsers/
+before_script:
+  - 'export DISPLAY=:99.0'
+  - 'sh -e /etc/init.d/xvfb start'
+  - sleep 3
+
+# Configure Git username and email, then on a successful run on the `master` branch, will deploy the the codebase to GitHub Pages
+before_deploy:
+  - git config user.name 'Travis CI'
+  - git config user.email 'deploy@travis.ibm.com'
+deploy:
+  skip_cleanup: true
+  provider: pages
+  github_token: ${GH_TOKEN}
+  local_dir: dist
+  github_url: github.ibm.com
+  on:
+    branch: master
