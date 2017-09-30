@@ -8,7 +8,7 @@
     </div>
     <div class="container demo">
       <figure class="demo__component">
-        <component :is="component.component" ref="component" />
+        <component :is="component.component" ref="component" :locale="$store.state.locale" />
         <br>
         <figcaption v-if="mounted">
           <prism language="javascript">{{ props }}</prism>

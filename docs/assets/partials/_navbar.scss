@@ -38,7 +38,8 @@
   }
 
   &__brand,
-  &__item {
+  &__item,
+  &__select {
     align-items: center;
     color: $white;
     display: flex;
@@ -46,5 +47,10 @@
     &:hover {
       background-color: color-shade($primary, 20);
     }
+  }
+
+  &__select {
+    background: $primary;
+    margin-right: 1rem;
   }
 }
