@@ -164,10 +164,9 @@ $half-pixel: (.5px / 16px) * 1em;
       cursor: pointer;
     }
 
-    // For cross-browser styling consistency…
-    // disable the inner dotted-line that FireFox adds.
-    &::-moz-focus-inner {
-      border: 0;
-    }
+    // For cross-browser consistency disable the dotted-line that FireFox adds.
+    // &::-moz-focus-inner { border-style: none; }
+    // ... Left out because: Style linter doesn't like -moz- vender prefix
+    // ... and autoprefixer doesn't seem to recognize focus-inner yet.
   }
 }
