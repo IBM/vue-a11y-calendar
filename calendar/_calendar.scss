@@ -163,5 +163,11 @@ $half-pixel: (.5px / 16px) * 1em;
     &:hover {
       cursor: pointer;
     }
+
+    // For cross-browser styling consistency…
+    // disable the inner dotted-line that FireFox adds.
+    &::-moz-focus-inner {
+      border: 0;
+    }
   }
 }
