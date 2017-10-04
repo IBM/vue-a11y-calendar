@@ -268,6 +268,8 @@ export default {
       if (target.classList.contains('calendar__date')) {
         target = target.parentNode;
       }
+      // Firefox/Safari need to be coerced into focusing the target element.
+      target.focus();
       // https://sebastiandedeyne.com/posts/2017/using-registered-event-listeners-as-conditionals-in-vue
       this.$emit('dateSelected', target);
     },
