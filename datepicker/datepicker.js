@@ -99,7 +99,6 @@ export default {
     },
     select(target) {
       const date = new Date(target.dataset.year, target.dataset.month, target.dataset.day);
-      this.selectedLocal = date.toLocaleDateString(this.locale);
       this.selectedDay = target.dataset.day;
       this.selectedMonth = target.dataset.month;
       this.selectedYear = target.dataset.year;
@@ -108,9 +107,18 @@ export default {
       this.$el.querySelector('.datepicker__input').focus();
     },
   },
+  computed: {
+    selectedLocal() {
+      const date = new Date(this.selectedYear, this.selectedMonth, this.selectedDay);
+      if (this.selectedYear === '' || this.selectedMonth === '' || this.selectedDay === '') {
+        return '';
+      }
+
+      return date.toLocaleDateString(this.locale);
+    },
+  },
   data() {
     return {
-      selectedLocal: '',
       selectedDay: '',
       selectedMonth: '',
       selectedYear: '',
