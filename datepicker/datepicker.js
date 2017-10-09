@@ -98,7 +98,6 @@ export default {
       this.$el.querySelector('.datepicker__popup').setAttribute('data-state', 'closed');
     },
     select(target) {
-      const date = new Date(target.dataset.year, target.dataset.month, target.dataset.day);
       this.selectedDay = target.dataset.day;
       this.selectedMonth = target.dataset.month;
       this.selectedYear = target.dataset.year;
