@@ -2,7 +2,7 @@
   <div>
     <div class="hero">
         <div class="hero__container">
-          <h1>{{ component.title }} </h1>
+          <h1>{{ component.title }}</h1>
           <h2>{{ component.description}}</h2>
         </div>
     </div>
@@ -10,8 +10,15 @@
       <figure class="demo__component">
         <component :is="component.component" ref="component" :locale="$store.state.locale" />
         <br>
-        <figcaption v-if="mounted">
-          <prism language="javascript">{{ props }}</prism>
+        <figcaption class="demo__options" v-if="mounted">
+          <div class="demo__locale">
+            <select class="demo__select" v-model="locale">
+              <option v-for="l in $store.getters.locales" :key="l" :value="l">
+                {{ l.toUpperCase() }}
+              </option>
+            </select>
+          </div>
+          <prism class="demo__config" language="javascript">{{ props }}</prism>
         </figcaption>
       </figure>
       <div class="demo__props">
@@ -85,6 +92,7 @@ export default {
   },
   mounted() {
     this.mounted = true;
+    this.$store.dispatch('UPDATE_LOCALE', localStorage.getItem('locale'));
   },
   validate(ctx) {
     return Boolean(components[ctx.params.component]);
@@ -98,6 +106,14 @@ export default {
         return '-';
       }
       return JSON.stringify(this.$refs.component.$props, null, 2);
+    },
+    locale: {
+      get() {
+        return this.$store.state.locale;
+      },
+      set(value) {
+        this.$store.dispatch('UPDATE_LOCALE', value);
+      },
     },
   },
 };

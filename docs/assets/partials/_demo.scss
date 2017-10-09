@@ -7,6 +7,20 @@
     margin: 1.5rem;
   }
 
+  &__options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  &__config {
+    width: 100%;
+  }
+
+  &__select {
+    background-color: transparent;
+  }
+
   &__component {
     flex: 1;
   }
