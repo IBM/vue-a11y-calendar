@@ -37,10 +37,14 @@
     "@nuxtjs/markdownit": "^1.1.2",
     "@nuxtjs/pwa": "^0.2.1",
     "babel-eslint": "^8.0.0",
+    "babel-loader": "^7.1.2",
+    "css-loader": "^0.28.7",
     "eslint": "^4.7.2",
     "eslint-config-airbnb-base": "^12.0.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-vue": "^3.13.0",
+    "html-webpack-harddisk-plugin": "^0.1.0",
+    "html-webpack-plugin": "^2.30.1",
     "ibm-design-colors": "^2.0.4",
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-prism": "^1.1.1",
@@ -48,8 +52,11 @@
     "nuxt": "^1.0.0-rc11",
     "prismjs": "^1.8.1",
     "sass-lint": "^1.11.1",
+    "sass-loader": "^6.0.6",
     "vue-prism-component": "^1.0.1",
-    "webpack": "^3.6.0"
+    "vue-style-loader": "^3.0.3",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1"
   },
   "peerDependencies": {
     "sass-loader": "^6.0",

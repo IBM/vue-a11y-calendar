@@ -6,6 +6,8 @@ yarn-debug.log*
 yarn-error.log*
 test/unit/coverage
 test/e2e/reports
+tests/.dist
+.nyc_output
 selenium-debug.log
 .nuxt
 docs-dist
