@@ -5,6 +5,7 @@ $size: 2.5em;
 
 .datepicker {
   box-sizing: border-box;
+  font-size: 1rem;
   position: relative;
 
   * { // sass-lint:disable-line no-universal-selectors
@@ -13,7 +14,7 @@ $size: 2.5em;
 
   &__activate {
     display: inline-block;
-    height: 1rem;
+    height: 1em;
 
     &:hover {
       cursor: pointer;
@@ -24,18 +25,21 @@ $size: 2.5em;
     display: block;
   }
 
+
   &__popup {
-    background-color: $white;
     display: none;
-    height: 300px; // sass-lint:disable-line property-units
-    left: calc(50% - 150px);
+    left: 0;
     position: absolute;
-    top: 0;
-    width: 300px; // sass-lint:disable-line property-units
+    top: 3rem;
+    width: 18.75em;
 
     &[data-state='open'] {
       display: block;
     }
+  }
+
+  &__calendar {
+    background: $white;
   }
 
   &__cancel {
