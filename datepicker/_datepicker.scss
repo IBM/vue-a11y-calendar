@@ -1,19 +1,33 @@
-$black: #000;
-$white: #fff;
-$border: 2px solid $black;
-$size: 2.5em;
+$black: #000 !default;
+$white: #fff !default;
+$border: 2px solid $black !default;
+$outline-size: 2px !default;
+$outline-color: #757575;
+$size: 2.5em !default;
 
 .datepicker {
   box-sizing: border-box;
+  font-size: 1rem;
   position: relative;
 
   * { // sass-lint:disable-line no-universal-selectors
     box-sizing: border-box;
   }
 
+  *:focus { // sass-lint:disable-line no-universal-selectors
+    outline: $outline-size dotted $outline-color;
+    outline-offset: $outline-size;
+  }
+
+  &__wrapper {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   &__activate {
-    display: inline-block;
-    height: 1rem;
+    height: 1em;
+    margin-left: .5em;
 
     &:hover {
       cursor: pointer;
@@ -21,21 +35,24 @@ $size: 2.5em;
   }
 
   &__label {
-    display: block;
+    flex-basis: 100%;
   }
 
+
   &__popup {
-    background-color: $white;
     display: none;
-    height: 300px; // sass-lint:disable-line property-units
-    left: calc(50% - 150px);
+    left: 0;
     position: absolute;
-    top: 0;
-    width: 300px; // sass-lint:disable-line property-units
+    top: 3rem;
+    width: 18.75em;
 
     &[data-state='open'] {
       display: block;
     }
+  }
+
+  &__calendar {
+    background: $white;
   }
 
   &__cancel {
@@ -44,6 +61,7 @@ $size: 2.5em;
     border-radius: 50%;
     color: transparent;
     height: $size;
+    overflow: hidden;
     position: absolute;
     right: 0;
     top: 0;

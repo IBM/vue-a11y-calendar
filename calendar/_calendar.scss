@@ -1,10 +1,12 @@
-$black: #000;
-$blue: #00f;
-$yellow: #ff0;
-$red: #f00;
-$gray: #888;
-$white: #fff;
-$half-pixel: (.5px / 16px) * 1em;
+$black: #000 !default;
+$blue: #00f !default;
+$yellow: #ff0 !default;
+$red: #f00 !default;
+$gray: #888 !default;
+$white: #fff !default;
+$half-pixel: (.5px / 16px) * 1em !default;
+$outline-size: 2px !default;
+$outline-color: #757575 !default;
 
 @mixin arrow($dir) {
   $arrow: '<';
@@ -35,6 +37,11 @@ $half-pixel: (.5px / 16px) * 1em;
 
   * { // sass-lint:disable-line no-universal-selectors
     box-sizing: border-box;
+  }
+
+  *:focus { // sass-lint:disable-line no-universal-selectors
+    outline: $outline-size dotted $outline-color;
+    outline-offset: $outline-size;
   }
 
   // Header
@@ -157,7 +164,6 @@ $half-pixel: (.5px / 16px) * 1em;
 
     &:focus {
       background-color: rgba($red, .5);
-      outline: $half-pixel ridge mix($white, $red, 50%);
     }
 
     &:hover {
