@@ -12,9 +12,20 @@ $size: 2.5em;
     box-sizing: border-box;
   }
 
+  *:focus { // sass-lint:disable-line no-universal-selectors
+    outline: $outline-size dotted $outline-color;
+    outline-offset: $outline-size;
+  }
+
+  &__wrapper {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   &__activate {
-    display: inline-block;
     height: 1em;
+    margin-left: .5em;
 
     &:hover {
       cursor: pointer;
@@ -22,7 +33,7 @@ $size: 2.5em;
   }
 
   &__label {
-    display: block;
+    flex-basis: 100%;
   }
 
 
