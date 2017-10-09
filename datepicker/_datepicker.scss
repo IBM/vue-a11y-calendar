@@ -1,7 +1,9 @@
-$black: #000;
-$white: #fff;
-$border: 2px solid $black;
-$size: 2.5em;
+$black: #000 !default;
+$white: #fff !default;
+$border: 2px solid $black !default;
+$outline-size: 2px !default;
+$outline-color: #757575;
+$size: 2.5em !default;
 
 .datepicker {
   box-sizing: border-box;

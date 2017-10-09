@@ -1,12 +1,12 @@
-$black: #000;
-$blue: #00f;
-$yellow: #ff0;
-$red: #f00;
-$gray: #888;
-$white: #fff;
-$half-pixel: (.5px / 16px) * 1em;
+$black: #000 !default;
+$blue: #00f !default;
+$yellow: #ff0 !default;
+$red: #f00 !default;
+$gray: #888 !default;
+$white: #fff !default;
+$half-pixel: (.5px / 16px) * 1em !default;
 $outline-size: 2px !default;
-$outline-color: #757575;
+$outline-color: #757575 !default;
 
 @mixin arrow($dir) {
   $arrow: '<';
