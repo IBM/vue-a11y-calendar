@@ -8,11 +8,13 @@
     "lint:js": "eslint --ext .js,.vue,.html calendar datepicker tests docs",
     "lint:sass": "sass-lint -q -v",
     "pretest": "npm run lint",
-    "test": "npm run docs:generate",
+    "test": "npm run unit && npm run integration",
+    "posttest": "npm run docs:generate",
     "start": "npm run docs",
     "docs": "NODE_ENV=dev nuxt -c docs/nuxt.config.js",
     "docs:generate": "nuxt generate -c docs/nuxt.config.js",
-    "unit": "karma start tests/unit/karma.conf.js --single-run"
+    "unit": "karma start tests/unit/karma.conf.js --single-run",
+    "integration": "ava tests/integration"
   },
   "repository": {
     "type": "git",
@@ -37,6 +39,7 @@
   "devDependencies": {
     "@nuxtjs/markdownit": "^1.1.2",
     "@nuxtjs/pwa": "^0.2.1",
+    "ava": "^0.22.0",
     "babel-eslint": "^8.0.0",
     "babel-loader": "^7.1.2",
     "chai": "^4.1.2",
