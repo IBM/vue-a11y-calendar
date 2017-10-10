@@ -286,6 +286,61 @@ describe('Calendar.vue - methods.t', () => {
 });
 
 /*
+ * calendar.methods.setFocus
+ */
+describe('Calendar.vue - methods.setFocus', () => {
+  it('should return the first day in the current', () => {
+    const today = new Date(Date.now());
+    const vm = new Constructor().$mount();
+    const item = vm.setFocus();
+
+    expect(item.tagName).to.equal('BUTTON');
+    expect(item.getAttribute('tabindex')).to.equal('0');
+    expect(item.getAttribute('data-day')).to.equal('1');
+    expect(item.getAttribute('data-month')).to.equal(`${today.getMonth()}`);
+    expect(item.getAttribute('data-year')).to.equal(`${today.getFullYear()}`);
+  });
+
+  it('should return the last day in the current', () => {
+    const today = new Date(Date.now());
+    const last = 32 - new Date(today.getFullYear(), today.getMonth(), 32).getDate();
+    const vm = new Constructor().$mount();
+    const item = vm.setFocus(true);
+
+    expect(item.tagName).to.equal('BUTTON');
+    expect(item.getAttribute('tabindex')).to.equal('0');
+    expect(item.getAttribute('data-day')).to.equal(`${last}`);
+    expect(item.getAttribute('data-month')).to.equal(`${today.getMonth()}`);
+    expect(item.getAttribute('data-year')).to.equal(`${today.getFullYear()}`);
+  });
+
+  it('should return the first day with an offset in the current', () => {
+    const today = new Date(Date.now());
+    const vm = new Constructor().$mount();
+    const item = vm.setFocus(false, 3);
+
+    expect(item.tagName).to.equal('BUTTON');
+    expect(item.getAttribute('tabindex')).to.equal('0');
+    expect(item.getAttribute('data-day')).to.equal('4');
+    expect(item.getAttribute('data-month')).to.equal(`${today.getMonth()}`);
+    expect(item.getAttribute('data-year')).to.equal(`${today.getFullYear()}`);
+  });
+
+  it('should return the last day with an offset in the current', () => {
+    const today = new Date(Date.now());
+    const last = 32 - new Date(today.getFullYear(), today.getMonth(), 32).getDate();
+    const vm = new Constructor().$mount();
+    const item = vm.setFocus(true, 5);
+
+    expect(item.tagName).to.equal('BUTTON');
+    expect(item.getAttribute('tabindex')).to.equal('0');
+    expect(item.getAttribute('data-day')).to.equal(`${last - 5}`);
+    expect(item.getAttribute('data-month')).to.equal(`${today.getMonth()}`);
+    expect(item.getAttribute('data-year')).to.equal(`${today.getFullYear()}`);
+  });
+});
+
+/*
  * calendar.methods.getLocaleDate
  */
 describe('Calendar.vue - methods.getLocaleDate', () => {
