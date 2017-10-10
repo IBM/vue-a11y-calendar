@@ -1,2 +1,3 @@
 docs/static/sw.js
 docs/static/workbox*.js
+tests/unit/coverage

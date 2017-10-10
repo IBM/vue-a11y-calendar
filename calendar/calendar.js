@@ -346,8 +346,7 @@ export default {
     },
     getLocaleDate(day, month, year) {
       // Move this in to computed/calendar view
-      const toGet = `${months[month]} ${day}, ${year}`;
-      return new Date(Date.parse(toGet)).toLocaleDateString('en-US', {
+      return new Date(year, month, day).toLocaleDateString(this.locale, {
         weekday: 'long',
         month: 'long',
         day: 'numeric',
