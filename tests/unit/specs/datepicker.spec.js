@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Datepicker from '@/datepicker';
+import Datepicker from '@/datepicker'; // eslint-disable-line import/no-unresolved, import/extensions
 
 const Constructor = Vue.extend(Datepicker);
 
@@ -54,17 +54,27 @@ describe('Datepicker.vue - props.microcopy', () => {
   });
 
   it('should invalidate `microcopy` without all needed keys', () => {
-    const microcopy1 = { next: 'Bar', previous: 'Baz', open: 'Qux', close: 'Waldo'};
-    const microcopy2 = { today: 'Foo: {date}', previous: 'Baz', open: 'Qux', close: 'Waldo' };
-    const microcopy3 = { today: 'Foo: {date}', next: 'Bar', open: 'Qux', close: 'Waldo' };
-    const microcopy4 = { today: 'Foo: {date}', next: 'Bar', previous: 'Baz', open: 'Qux' };
-    const microcopy5 = { today: 'Foo: {date}', next: 'Bar', previous: 'Baz', close: 'Waldo' };
+    const microcopy1 = {
+      next: 'Bar', previous: 'Baz', open: 'Qux', close: 'Waldo',
+    };
+    const microcopy2 = {
+      today: 'Foo: {date}', previous: 'Baz', open: 'Qux', close: 'Waldo',
+    };
+    const microcopy3 = {
+      today: 'Foo: {date}', next: 'Bar', open: 'Qux', close: 'Waldo',
+    };
+    const microcopy4 = {
+      today: 'Foo: {date}', next: 'Bar', previous: 'Baz', open: 'Qux',
+    };
+    const microcopy5 = {
+      today: 'Foo: {date}', next: 'Bar', previous: 'Baz', close: 'Waldo',
+    };
 
-    const expectation = `[Vue warn]: Invalid prop: custom validator check failed for prop "microcopy".\n\n(found in <Root>)`;
+    const expectation = '[Vue warn]: Invalid prop: custom validator check failed for prop "microcopy".\n\n(found in <Root>)';
     const consoleStub = sinon.stub(console, 'error');
 
     // Missing Today
-    let vm = new Constructor({
+    new Constructor({
       propsData: {
         microcopy: microcopy1,
       },
@@ -72,7 +82,7 @@ describe('Datepicker.vue - props.microcopy', () => {
     expect(console.error).to.have.been.calledWith(expectation);
 
     // Missing Next
-    vm = new Constructor({
+    new Constructor({
       propsData: {
         microcopy: microcopy2,
       },
@@ -80,7 +90,7 @@ describe('Datepicker.vue - props.microcopy', () => {
     expect(console.error).to.have.been.calledWith(expectation);
 
     // Missing Previous
-    vm = new Constructor({
+    new Constructor({
       propsData: {
         microcopy: microcopy3,
       },
@@ -88,7 +98,7 @@ describe('Datepicker.vue - props.microcopy', () => {
     expect(console.error).to.have.been.calledWith(expectation);
 
     // Missing Open
-    vm = new Constructor({
+    new Constructor({
       propsData: {
         microcopy: microcopy4,
       },
@@ -96,7 +106,7 @@ describe('Datepicker.vue - props.microcopy', () => {
     expect(console.error).to.have.been.calledWith(expectation);
 
     // Missing Cancel
-    vm = new Constructor({
+    new Constructor({
       propsData: {
         microcopy: microcopy5,
       },
@@ -107,10 +117,10 @@ describe('Datepicker.vue - props.microcopy', () => {
   });
 
   it('should invalidate `microcopy` if `microcopy.today` is malformed', () => {
-    const microcopy = { today: 'Foo', next: 'Bar', previous: 'Baz'};
-    const expectation = `[Vue warn]: Invalid prop: custom validator check failed for prop "microcopy".\n\n(found in <Root>)`;
+    const microcopy = { today: 'Foo', next: 'Bar', previous: 'Baz' };
+    const expectation = '[Vue warn]: Invalid prop: custom validator check failed for prop "microcopy".\n\n(found in <Root>)';
     const consoleStub = sinon.stub(console, 'error');
-    const vm = new Constructor({
+    new Constructor({
       propsData: {
         microcopy,
       },
@@ -155,11 +165,11 @@ describe('Datepicker.vue - props.inputs', () => {
     const noMonth = { local: 'foo', day: 'bar', year: 'qux' };
     const noYear = { local: 'foo', day: 'bar', month: 'baz' };
 
-    const expectation = `[Vue warn]: Invalid prop: custom validator check failed for prop "inputs".\n\n(found in <Root>)`;
+    const expectation = '[Vue warn]: Invalid prop: custom validator check failed for prop "inputs".\n\n(found in <Root>)';
     const consoleStub = sinon.stub(console, 'error');
 
     // Missing Local
-    let vm = new Constructor({
+    new Constructor({
       propsData: {
         inputs: noLocal,
       },
@@ -167,7 +177,7 @@ describe('Datepicker.vue - props.inputs', () => {
     expect(console.error).to.have.been.calledWith(expectation);
 
     // Missing Day
-    vm = new Constructor({
+    new Constructor({
       propsData: {
         inputs: noDay,
       },
@@ -175,7 +185,7 @@ describe('Datepicker.vue - props.inputs', () => {
     expect(console.error).to.have.been.calledWith(expectation);
 
     // Missing Month
-    vm = new Constructor({
+    new Constructor({
       propsData: {
         inputs: noMonth,
       },
@@ -183,7 +193,7 @@ describe('Datepicker.vue - props.inputs', () => {
     expect(console.error).to.have.been.calledWith(expectation);
 
     // Missing Year
-    vm = new Constructor({
+    new Constructor({
       propsData: {
         inputs: noYear,
       },
@@ -202,7 +212,7 @@ describe('Datepicker.vue - methods.t', () => {
     const vm = new Constructor().$mount();
 
     expect(vm.t('Foo: {date}', { date: 'bar' })).to.equal('Foo: bar');
-    expect(vm.t('Foo: {date}', { bar: 'baz'})).to.equal('Foo: {date}');
+    expect(vm.t('Foo: {date}', { bar: 'baz' })).to.equal('Foo: {date}');
     expect(vm.t('Foo{date}: {date}', { date: 'bar' })).to.equal('Foobar: bar');
   });
 });

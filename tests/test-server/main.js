@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import VueRouter from 'vue-router';
-import Calendar from '@/calendar';
-import Datepicker from '@/datepicker';
+import VueRouter from 'vue-router'; // eslint-disable-line import/no-extraneous-dependencies
+import Calendar from '@/calendar'; // eslint-disable-line import/no-unresolved, import/extensions
+import Datepicker from '@/datepicker'; // eslint-disable-line import/no-unresolved, import/extensions
 
 Vue.use(VueRouter);
 
@@ -14,7 +14,7 @@ const routes = [{
     components: {
       Calendar,
     },
-    template: '<calendar></calendar>'
+    template: '<calendar></calendar>',
   },
 }, {
   path: '/datepicker',
@@ -23,14 +23,14 @@ const routes = [{
     components: {
       Datepicker,
     },
-    template: '<datepicker></datepicker>'
+    template: '<datepicker></datepicker>',
   },
 }, {
   path: '*',
   redirect: '/',
 }];
 
-new Vue({
+new Vue({ // eslint-disable-line no-new
   el: '#app',
   template: '<router-view></router-view>',
   router: new VueRouter({

@@ -17,7 +17,7 @@ module.exports = {
     alias: {
       vue$: 'vue/dist/vue.esm.js',
       '@': resolve(''),
-    }
+    },
   },
   devtool: '#inline-source-map',
   module: {
@@ -41,14 +41,14 @@ module.exports = {
               test: /\.scss$/,
               use: ['vue-style-loader', {
                 loader: 'sass-loader',
-                options: {}
+                options: {},
               }],
             },
             {
               test: /\.sass$/,
               use: ['vue-style-loader', {
                 loader: 'sass-loader',
-                options: {}
+                options: {},
               }],
             },
           ],
@@ -73,4 +73,4 @@ module.exports = {
       },
     }),
   ],
-}
+};

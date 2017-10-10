@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Calendar from '@/calendar';
+import Calendar from '@/calendar'; // eslint-disable-line import/no-unresolved, import/extensions
 
 const Constructor = Vue.extend(Calendar);
 
@@ -50,15 +50,15 @@ describe('Calendar.vue - props.microcopy', () => {
   });
 
   it('should invalidate `microcopy` without all needed keys', () => {
-    const microcopy1 = { next: 'Bar', previous: 'Baz'};
+    const microcopy1 = { next: 'Bar', previous: 'Baz' };
     const microcopy2 = { today: 'Foo: {date}', previous: 'Baz' };
     const microcopy3 = { today: 'Foo: {date}', next: 'Bar' };
 
-    const expectation = `[Vue warn]: Invalid prop: custom validator check failed for prop "microcopy".\n\n(found in <Root>)`;
+    const expectation = '[Vue warn]: Invalid prop: custom validator check failed for prop "microcopy".\n\n(found in <Root>)';
     const consoleStub = sinon.stub(console, 'error');
 
     // Missing Today
-    let vm = new Constructor({
+    new Constructor({
       propsData: {
         microcopy: microcopy1,
       },
@@ -66,7 +66,7 @@ describe('Calendar.vue - props.microcopy', () => {
     expect(console.error).to.have.been.calledWith(expectation);
 
     // Missing Next
-    vm = new Constructor({
+    new Constructor({
       propsData: {
         microcopy: microcopy2,
       },
@@ -74,7 +74,7 @@ describe('Calendar.vue - props.microcopy', () => {
     expect(console.error).to.have.been.calledWith(expectation);
 
     // Missing Previous
-    vm = new Constructor({
+    new Constructor({
       propsData: {
         microcopy: microcopy3,
       },
@@ -84,10 +84,10 @@ describe('Calendar.vue - props.microcopy', () => {
   });
 
   it('should invalidate `microcopy` if `microcopy.today` is malformed', () => {
-    const microcopy = { today: 'Foo', next: 'Bar', previous: 'Baz'};
-    const expectation = `[Vue warn]: Invalid prop: custom validator check failed for prop "microcopy".\n\n(found in <Root>)`;
+    const microcopy = { today: 'Foo', next: 'Bar', previous: 'Baz' };
+    const expectation = '[Vue warn]: Invalid prop: custom validator check failed for prop "microcopy".\n\n(found in <Root>)';
     const consoleStub = sinon.stub(console, 'error');
-    const vm = new Constructor({
+    new Constructor({
       propsData: {
         microcopy,
       },
@@ -103,18 +103,18 @@ describe('Calendar.vue - props.microcopy', () => {
 describe('Calendar.vue - computed.months', () => {
   it('should return an array of months with short/long values', () => {
     const expected = [
-      { short:'Jan', long: 'January' },
-      { short:'Feb', long: 'February' },
-      { short:'Mar', long: 'March' },
-      { short:'Apr', long: 'April' },
-      { short:'May', long: 'May' },
-      { short:'Jun', long: 'June' },
-      { short:'Jul', long: 'July' },
-      { short:'Aug', long: 'August' },
-      { short:'Sep', long: 'September' },
-      { short:'Oct', long: 'October' },
-      { short:'Nov', long: 'November' },
-      { short:'Dec', long: 'December' },
+      { short: 'Jan', long: 'January' },
+      { short: 'Feb', long: 'February' },
+      { short: 'Mar', long: 'March' },
+      { short: 'Apr', long: 'April' },
+      { short: 'May', long: 'May' },
+      { short: 'Jun', long: 'June' },
+      { short: 'Jul', long: 'July' },
+      { short: 'Aug', long: 'August' },
+      { short: 'Sep', long: 'September' },
+      { short: 'Oct', long: 'October' },
+      { short: 'Nov', long: 'November' },
+      { short: 'Dec', long: 'December' },
     ];
     const vm = new Constructor().$mount();
 
@@ -152,13 +152,13 @@ describe('Calendar.vue - computed.months', () => {
 describe('Calendar.vue - computed.days', () => {
   it('should return an array of days of the week with short/long values', () => {
     const expected = [
-      { short:'Sun', long: 'Sunday' },
-      { short:'Mon', long: 'Monday' },
-      { short:'Tue', long: 'Tuesday' },
-      { short:'Wed', long: 'Wednesday' },
-      { short:'Thu', long: 'Thursday' },
-      { short:'Fri', long: 'Friday' },
-      { short:'Sat', long: 'Saturday' },
+      { short: 'Sun', long: 'Sunday' },
+      { short: 'Mon', long: 'Monday' },
+      { short: 'Tue', long: 'Tuesday' },
+      { short: 'Wed', long: 'Wednesday' },
+      { short: 'Thu', long: 'Thursday' },
+      { short: 'Fri', long: 'Friday' },
+      { short: 'Sat', long: 'Saturday' },
     ];
     const vm = new Constructor().$mount();
 
@@ -206,7 +206,7 @@ function generateMonths(locale = 'en-US') {
   const previous = {
     month: current.month - 1 < 0 ? 11 : current.month - 1,
     year: current.month - 1 < 0 ? current.year - 1 : current.year,
-  }
+  };
 
   previous.days = 32 - new Date(previous.year, previous.month, 32).getDate();
   previous.parsed = new Date(previous.year, previous.month, 1);
@@ -215,7 +215,7 @@ function generateMonths(locale = 'en-US') {
   const next = {
     month: current.month + 1 > 11 ? 0 : current.month + 1,
     year: current.month + 1 > 11 ? current.year + 1 : current.year,
-  }
+  };
 
   next.days = 32 - new Date(next.year, next.month, 32).getDate();
   next.parsed = new Date(next.year, next.month, 1);
@@ -226,7 +226,7 @@ function generateMonths(locale = 'en-US') {
     previous,
     next,
   };
-};
+}
 
 describe('Calendar.vue - computed.calendar', () => {
   it('should return a calendar object', () => {
@@ -239,10 +239,10 @@ describe('Calendar.vue - computed.calendar', () => {
     expect(vm.calendar.next).to.deep.equal(months.next);
     expect(vm.calendar.days).to.be.an('array');
 
-    vm.calendar.days.forEach(week => {
+    vm.calendar.days.forEach((week) => {
       expect(week).to.be.an('array');
 
-      week.forEach(day => {
+      week.forEach((day) => {
         expect(Object.keys(day)).to.deep.equal(['month', 'year', 'day', 'dayString', 'string', 'status', 'focusable']);
       });
     });
@@ -262,10 +262,10 @@ describe('Calendar.vue - computed.calendar', () => {
     expect(vm.calendar.next).to.deep.equal(months.next);
     expect(vm.calendar.days).to.be.an('array');
 
-    vm.calendar.days.forEach(week => {
+    vm.calendar.days.forEach((week) => {
       expect(week).to.be.an('array');
 
-      week.forEach(day => {
+      week.forEach((day) => {
         expect(Object.keys(day)).to.deep.equal(['month', 'year', 'day', 'dayString', 'string', 'status', 'focusable']);
       });
     });
@@ -280,7 +280,7 @@ describe('Calendar.vue - methods.t', () => {
     const vm = new Constructor().$mount();
 
     expect(vm.t('Foo: {date}', { date: 'bar' })).to.equal('Foo: bar');
-    expect(vm.t('Foo: {date}', { bar: 'baz'})).to.equal('Foo: {date}');
+    expect(vm.t('Foo: {date}', { bar: 'baz' })).to.equal('Foo: {date}');
     expect(vm.t('Foo{date}: {date}', { date: 'bar' })).to.equal('Foobar: bar');
   });
 });
@@ -374,7 +374,7 @@ describe('Calendar.vue - methods.isToday', () => {
       year: today.getFullYear(),
     };
 
-    expect(vm.isToday(current)).to.be.true;
+    expect(vm.isToday(current)).to.be.true; // eslint-disable-line no-unused-expressions
   });
 
   it('should be `false` if its not today', () => {
@@ -386,7 +386,7 @@ describe('Calendar.vue - methods.isToday', () => {
       year: today.getFullYear() + 1,
     };
 
-    expect(vm.isToday(current)).to.be.false;
+    expect(vm.isToday(current)).to.be.false; // eslint-disable-line no-unused-expressions
   });
 });
 

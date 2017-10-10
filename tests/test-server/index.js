@@ -20,7 +20,7 @@ const compiler = webpack(merge(config, {
       template: resolve('tests/test-server/wrapper.ejs'),
     }),
     new HtmlWebpackHarddiskPlugin(),
-  ]
+  ],
 }));
 
 const server = new WebpackDevServer(compiler, {
