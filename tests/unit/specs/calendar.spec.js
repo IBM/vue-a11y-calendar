@@ -4,7 +4,7 @@ import Calendar from '@/calendar';
 const Constructor = Vue.extend(Calendar);
 
 /*
- * calendar.props.microcopy
+ * calendar.props.locale
  */
 describe('Calendar.vue - props.locale', () => {
   it('should have a default `locale`', () => {
