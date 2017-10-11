@@ -14,6 +14,7 @@
     "docs": "NODE_ENV=dev nuxt -c docs/nuxt.config.js",
     "docs:generate": "nuxt generate -c docs/nuxt.config.js",
     "unit": "karma start tests/unit/karma.conf.js --single-run",
+    "dev": "webpack-dev-server --config tests/test-server/webpack.conf.js --content-base tests/.dist --open",
     "integration": "ava tests/integration"
   },
   "repository": {

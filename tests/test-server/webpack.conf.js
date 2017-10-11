@@ -6,6 +6,9 @@ function resolve(dir) {
 }
 
 module.exports = {
+  entry: {
+    app: resolve('tests/test-server/main.js'),
+  },
   output: {
     path: resolve('tests/.dist'),
     filename: '[name].js',
