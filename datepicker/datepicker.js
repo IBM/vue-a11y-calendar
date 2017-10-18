@@ -104,6 +104,8 @@ export default {
 
       this.$el.querySelector('.datepicker__popup').setAttribute('data-state', 'closed');
       this.$el.querySelector('.datepicker__input').focus();
+
+      this.$emit('dateSelected', target);
     },
   },
   computed: {

@@ -131,6 +131,11 @@ export default {
       },
     ],
     events: [
+      {
+        name: 'dateSelected',
+        args: 'target',
+        description: 'When a click event is fired on a date, this event will fire and pass the relevant target of the event',
+      },
     ],
   },
 };
