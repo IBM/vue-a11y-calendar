@@ -272,6 +272,8 @@ export default {
       target.focus();
       // https://sebastiandedeyne.com/posts/2017/using-registered-event-listeners-as-conditionals-in-vue
       this.$emit('dateSelected', target);
+
+      e.preventDefault();
     },
     isFocusable(current) {
       const { today } = this;
