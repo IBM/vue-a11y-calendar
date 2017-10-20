@@ -62,6 +62,16 @@ export default {
         return true;
       },
     },
+    value: {
+      type: Object,
+      default() {
+        return {
+          year: '',
+          month: '',
+          day: '',
+        };
+      },
+    },
   },
   methods: {
     t(value, props = {}) {
@@ -98,31 +108,42 @@ export default {
       this.$el.querySelector('.datepicker__popup').setAttribute('data-state', 'closed');
     },
     select(target) {
-      this.selectedDay = target.dataset.day;
-      this.selectedMonth = target.dataset.month;
-      this.selectedYear = target.dataset.year;
-
       this.$el.querySelector('.datepicker__popup').setAttribute('data-state', 'closed');
       this.$el.querySelector('.datepicker__input').focus();
 
+      this.value.year = target.dataset.year;
+      this.value.month = target.dataset.month;
+      this.value.day = target.dataset.day;
+
       this.$emit('dateSelected', target);
+      this.$emit('input', this.value);
     },
   },
   computed: {
     selectedLocal() {
-      const date = new Date(this.selectedYear, this.selectedMonth, this.selectedDay);
-      if (this.selectedYear === '' || this.selectedMonth === '' || this.selectedDay === '') {
+      if (this.value.year === '' || this.value.month === '' || this.value.day === '') {
         return '';
       }
 
+      const date = new Date();
+      date.setFullYear(this.value.year);
+      date.setMonth(this.value.month);
+      date.setDate(this.value.day);
+
       return date.toLocaleDateString(this.locale);
+    },
+    selectedYear() {
+      return this.value.year;
+    },
+    selectedMonth() {
+      return this.value.month;
+    },
+    selectedDay() {
+      return this.value.day;
     },
   },
   data() {
     return {
-      selectedDay: '',
-      selectedMonth: '',
-      selectedYear: '',
     };
   },
 };
