@@ -103,9 +103,11 @@ export default {
         item.focus();
       }
     },
-    cancel() {
+    cancel(e) {
       this.$el.querySelector('.datepicker__activate').focus();
       this.$el.querySelector('.datepicker__popup').setAttribute('data-state', 'closed');
+
+      e.preventDefault();
     },
     select(target) {
       this.$el.querySelector('.datepicker__popup').setAttribute('data-state', 'closed');
