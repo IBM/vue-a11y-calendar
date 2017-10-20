@@ -66,7 +66,9 @@ export default {
       type: Object,
       default() {
         return {
-          date: null, // could be `new Date()`
+          year: '',
+          month: '',
+          day: '',
         };
       },
     },
@@ -109,7 +111,9 @@ export default {
       this.$el.querySelector('.datepicker__popup').setAttribute('data-state', 'closed');
       this.$el.querySelector('.datepicker__input').focus();
 
-      this.value.date = new Date(`${target.dataset.year}-${target.dataset.month}-${target.dataset.day}`);
+      this.value.year = target.dataset.year;
+      this.value.month = target.dataset.month;
+      this.value.day = target.dataset.day;
 
       this.$emit('dateSelected', target);
       this.$emit('input', this.value);
@@ -117,29 +121,25 @@ export default {
   },
   computed: {
     selectedLocal() {
-      if (this.value.date === null) {
+      if (this.value.year === '' || this.value.month === '' || this.value.day === '') {
         return '';
       }
 
-      return this.value.date.toLocaleDateString(this.locale);
+      const date = new Date();
+      date.setFullYear(this.value.year);
+      date.setMonth(this.value.month);
+      date.setDate(this.value.day);
+
+      return date.toLocaleDateString(this.locale);
     },
     selectedYear() {
-      if (this.value.date === null) {
-        return '';
-      }
-      return this.value.date.getFullYear();
+      return this.value.year;
     },
     selectedMonth() {
-      if (this.value.date === null) {
-        return '';
-      }
-      return this.value.date.getMonth();
+      return this.value.month;
     },
     selectedDay() {
-      if (this.value.date === null) {
-        return '';
-      }
-      return this.value.date.getDate();
+      return this.value.day;
     },
   },
   data() {
