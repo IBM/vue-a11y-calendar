@@ -6,29 +6,47 @@ export default {
     calendar,
   },
   props: {
+    type: {
+      type: String,
+      default: 'single',
+      validator(value) {
+        return value === 'single' || value === 'range';
+      },
+    },
     locale: {
       type: String,
       default: 'en-US',
     },
     label: {
-      type: String,
-      default: 'Choose a date',
+      type: [String, Object],
+      default() {
+        if (this.type === 'single') {
+          return 'Choose a date';
+        }
+
+        return {
+          start: 'Choose a starting date',
+          end: 'Choose an ending date',
+        };
+      },
     },
     inputs: {
       type: Object,
       default() {
-        return {
+        const value = {
           local: 'date-local',
           day: 'date-day',
           month: 'date-month',
           year: 'date-year',
         };
+
+        return value;
       },
       validator(value) {
         const keys = ['local', 'day', 'month', 'year'];
 
         // Make sure all three keys are there
-        if (JSON.stringify(Object.keys(value)) !== JSON.stringify(keys)) {
+        if (keys.find(k => value[k] === undefined)) {
           return false;
         }
 
@@ -38,13 +56,15 @@ export default {
     microcopy: {
       type: Object,
       default() {
-        return {
+        const value = {
           today: 'Today: {date}',
           next: 'Next Month',
           previous: 'Previous Month',
           open: 'Open Calendar',
           cancel: 'Cancel',
         };
+
+        return value;
       },
       validator(value) {
         const keys = ['today', 'next', 'previous', 'open', 'cancel'];
@@ -98,22 +118,56 @@ export default {
       this.$el.querySelector('.datepicker__popup').setAttribute('data-state', 'closed');
     },
     select(target) {
-      this.selectedDay = target.dataset.day;
-      this.selectedMonth = target.dataset.month;
-      this.selectedYear = target.dataset.year;
+      if (this.type === 'single') {
+        this.selectedDay = target.dataset.day;
+        this.selectedMonth = target.dataset.month;
+        this.selectedYear = target.dataset.year;
+      } else if (this.type === 'range') {
+        if (this.range === 0) {
+          this.selectedDay = target.dataset.day;
+          this.selectedMonth = target.dataset.month;
+          this.selectedYear = target.dataset.year;
+          this.range += 1;
+        } else {
+          if (target.dataset.year <= this.selectedYear && target.dataset.month <= this.selectedMonth && target.dataset.day <= this.selectedDay) {
+            this.selectedDayEnd = this.selectedDay;
+            this.selectedMonthEnd = this.selectedMonth;
+            this.selectedYearEnd = this.selectedYear;
 
-      this.$el.querySelector('.datepicker__popup').setAttribute('data-state', 'closed');
-      this.$el.querySelector('.datepicker__input').focus();
+            this.selectedDay = target.dataset.day;
+            this.selectedMonth = target.dataset.month;
+            this.selectedYear = target.dataset.year;
+          } else {
+            this.selectedDayEnd = target.dataset.day;
+            this.selectedMonthEnd = target.dataset.month;
+            this.selectedYearEnd = target.dataset.year;
+          }
+          this.range += 1;
+        }
+      }
+
+      if (this.range === 2) {
+        this.$el.querySelector('.datepicker__popup').setAttribute('data-state', 'closed');
+        this.$el.querySelector('.datepicker__input').focus();
+        this.range = 0;
+      }
+
     },
-  },
-  computed: {
-    selectedLocal() {
-      const date = new Date(this.selectedYear, this.selectedMonth, this.selectedDay);
+    transformLocal(year, month, day) {
+      const date = new Date(year, month, day);
       if (this.selectedYear === '' || this.selectedMonth === '' || this.selectedDay === '') {
         return '';
       }
 
       return date.toLocaleDateString(this.locale);
+    }
+  },
+  computed: {
+    selectedLocal() {
+      return this.transformLocal(this.selectedYear, this.selectedMonth, this.selectedDay);
+    },
+    selectedLocalEnd() {
+      return this.transformLocal(this.selectedYearEnd, this.selectedMonthEnd, this.selectedDayEnd);
     },
   },
   data() {
@@ -121,6 +175,10 @@ export default {
       selectedDay: '',
       selectedMonth: '',
       selectedYear: '',
+      selectedDayEnd: '',
+      selectedMonthEnd: '',
+      selectedYearEnd: '',
+      range: 0,
     };
   },
 };

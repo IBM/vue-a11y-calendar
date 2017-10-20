@@ -26,6 +26,15 @@ const routes = [{
     template: '<datepicker></datepicker>',
   },
 }, {
+  path: '/datepicker/range',
+  name: 'Range Datepicker',
+  component: {
+    components: {
+      Datepicker,
+    },
+    template: '<datepicker type="range"></datepicker>'
+  },
+}, {
   path: '*',
   redirect: '/',
 }];

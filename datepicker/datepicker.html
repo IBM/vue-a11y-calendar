@@ -1,7 +1,22 @@
 <div class="datepicker">
   <div class="datepicker__wrapper">
-    <label :for="inputs.local" class="datepicker__label">{{ label }}</label>
-    <input :id="inputs.local" :name="inputs.local" type="text" class="datepicker__input" :value="selectedLocal" readonly>
+    <label :for="inputs.local" class="datepicker__label" v-if="type === 'single'">{{ label }}</label>
+    <label :for="inputs.local + '-0'" class="datepicker__label" v-if="type === 'range'">{{ label.start }}</label>
+    <input
+      :id="inputs.local + (type === 'range' ? '-0' : '')"
+      :name="inputs.local + (type === 'range' ? '-0' : '')"
+      type="text" class="datepicker__input"
+      :value="selectedLocal"
+      readonly>
+    <label :for="inputs.local + '-1'" class="datepicker__label" v-if="type === 'range'">{{ label.end }}</label>
+    <input
+      :id="inputs.local + '-1'"
+      :name="inputs.local + '-1'"
+      type="text" class="datepicker__input"
+      :value="selectedLocalEnd"
+      v-if="type === 'range'"
+      readonly>
+
     <svg class="datepicker__activate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" role="button" @click="open" @keydown.space="open" @keydown.enter="open" tabindex="0">
       <title>Open Calendar</title>
       <path class="cls-1" d="M13,1V0H11V1H5V0H3V1H0V16H16V1Zm1,13H2V5H14Z"/>
@@ -12,9 +27,34 @@
       <rect class="cls-1" x="10" y="10" width="2" height="2"/>
       <rect class="cls-1" x="7" y="10" width="2" height="2"/>
     </svg>
-    <input type="hidden" :name="inputs.day" :value="selectedDay">
-    <input type="hidden" :name="inputs.month" :value="selectedMonth">
-    <input type="hidden" :name="inputs.year" :value="selectedYear">
+    <input
+      type="hidden"
+      :name="inputs.day + (type === 'range' ? '-0' : '')"
+      :value="selectedDay">
+    <input
+      type="hidden"
+      :name="inputs.month + (type === 'range' ? '-0' : '')"
+      :value="selectedMonth">
+    <input
+      type="hidden"
+      :name="inputs.year + (type === 'range' ? '-0' : '')"
+      :value="selectedYear">
+
+    <input
+      type="hidden"
+      :name="inputs.day + '-1'"
+      :value="selectedDayEnd"
+      v-if="type === 'range'">
+    <input
+      type="hidden"
+      :name="inputs.month + '-1'"
+      :value="selectedMonthEnd"
+      v-if="type === 'range'">
+    <input
+      type="hidden"
+      :name="inputs.year + '-1'"
+      :value="selectedYearEnd"
+      v-if="type === 'range'">
   </div>
 
   <div class="datepicker__popup" aria-label="Date Picker" role="application" @keydown.tab="tabcapture" @keydown.esc="cancel" tabindex="-1">
