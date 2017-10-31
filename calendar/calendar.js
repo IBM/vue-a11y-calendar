@@ -265,6 +265,8 @@ export default {
     select(e) {
       let { target } = e;
 
+      e.preventDefault();
+
       if (target.classList.contains('calendar__date')) {
         target = target.parentNode;
       }
@@ -358,7 +360,9 @@ export default {
     isToday(current) {
       return current.day === this.today.day && current.month === this.today.month && current.year === this.today.year;
     },
-    navigate(dir) {
+    navigate(dir, e) {
+      e.preventDefault();
+
       const move = {};
       if (dir === 'next') {
         move.month = this.current.month + 1 > 11 ? 0 : this.current.month + 1;

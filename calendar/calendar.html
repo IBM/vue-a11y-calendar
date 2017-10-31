@@ -21,11 +21,11 @@
   <!-- Calendar Header -->
   <div class="calendar__header">
     <!-- Previous Month -->
-    <button class="calendar__previous" :title="t(microcopy.previous)" @click="navigate('prev')" :aria-controls="tableID">
+    <button class="calendar__previous" :title="t(microcopy.previous)" @click="navigate('prev', $event)" :aria-controls="tableID">
       <span class="calendar__nav">{{ t(microcopy.previous) }}</span>
     </button>
     <!-- Next Month -->
-    <button class="calendar__next" :title="t(microcopy.next)" @click="navigate('next')" :aria-controls="tableID">
+    <button class="calendar__next" :title="t(microcopy.next)" @click="navigate('next', $event)" :aria-controls="tableID">
       <span class="calendar__nav">{{ t(microcopy.next) }}</span>
     </button>
     <!-- Visual Calendar Month -->
