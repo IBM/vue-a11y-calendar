@@ -361,7 +361,9 @@ export default {
       return current.day === this.today.day && current.month === this.today.month && current.year === this.today.year;
     },
     navigate(dir, e) {
-      e.preventDefault();
+      if (e) {
+        e.preventDefault();
+      }
 
       const move = {};
       if (dir === 'next') {
