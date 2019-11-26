@@ -150,6 +150,11 @@ $outline-color: #757575 !default;
       background: mix($white, $yellow, 50%);
       border: $half-pixel solid $black;
     }
+
+    &--selected {
+      background: mix($white, $red, 50%);
+      border: $half-pixel solid $black;
+    }
   }
 
   &__link {

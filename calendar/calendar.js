@@ -57,6 +57,16 @@ export default {
         return true;
       },
     },
+    selectedDate: {
+      type: Object,
+      default() {
+        return {
+          day: '',
+          month: '',
+          year: '',
+        };
+      },
+    },
   },
   computed: {
     months() {
@@ -359,6 +369,12 @@ export default {
     },
     isToday(current) {
       return current.day === this.today.day && current.month === this.today.month && current.year === this.today.year;
+    },
+    isSelected(date) {
+      const { day, month, year } = this.selectedDate;
+      const isSelected = date.day === parseInt(day, 10) && date.month === parseInt(month, 10) && date.year === parseInt(year, 10);
+
+      return isSelected;
     },
     navigate(dir, e) {
       if (e) {
