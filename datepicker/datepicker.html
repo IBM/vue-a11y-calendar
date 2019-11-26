@@ -18,7 +18,7 @@
   </div>
 
   <div class="datepicker__popup" aria-label="Date Picker" role="application" @keydown.tab="tabcapture" @keydown.esc="cancel" tabindex="-1">
-    <calendar class="datepicker__calendar" @dateSelected="select" :locale="locale" :microcopy="microcopy"></calendar>
+    <calendar class="datepicker__calendar" @dateSelected="select" :locale="locale" :microcopy="microcopy" :selectedDate="value"></calendar>
     <button class="datepicker__cancel" @click="cancel">Cancel</button>
   </div>
 </div>

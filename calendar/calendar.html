@@ -9,10 +9,10 @@
       </tr>
     </thead>
     <tbody class="calendar__body" @keydown.left="calendarNav('prev', $event)" @keydown.right="calendarNav('next', $event)" @keydown.up="calendarNav('up', $event)" @keydown.down="calendarNav('down', $event)">
-      <tr class="calendar__week" v-for="week in calendar.days" @click="select" :key="'week--' + week">
-        <td :class="day.status ? `calendar__day--${day.status}` : 'calendar__day'" v-for="day in week" :key="day.string">
+      <tr class="calendar__week" v-for="(week, index) in calendar.days" @click="select" :key="'week--' + week + index">
+        <td :class="{ 'calendar__day': true, [`calendar__day--${day.status}`]: day.status, 'calendar__day--selected': isSelected(day) }" v-for="day in week" :key="day.string">
           <!-- Make only "active" or "1" focusable -->
-          <button :tabindex="day.focusable ? 0 : -1" class="calendar__link" :data-day="day.day" :data-month="day.month" :data-year="day.year" :ref="'calendar'" :aria-label="day.string"><span class="calendar__date">{{ day.dayString }}</span></button>
+          <button :tabindex="day.focusable ? 0 : -1" class="calendar__link" :data-day="day.day" :data-month="day.month" :data-year="day.year" :ref="'calendar'" :aria-label="day.string" :aria-selected="isSelected(day)"><span class="calendar__date">{{ day.dayString }}</span></button>
         </td>
       </tr>
     </tbody>

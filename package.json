@@ -38,7 +38,7 @@
   "homepage": "https://github.com/IBM/vue-a11y-calendar#readme",
   "devDependencies": {
     "@nuxtjs/markdownit": "^1.1.2",
-    "@nuxtjs/pwa": "^0.2.1",
+    "@nuxtjs/pwa": "^2.6.0",
     "ava": "^0.22.0",
     "babel-eslint": "^8.0.0",
     "babel-loader": "^7.1.2",
